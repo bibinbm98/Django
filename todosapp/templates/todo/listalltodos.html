@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{%extends 'todo/home.html'%}
+{%block body_block%}
+<h1>todolist</h1>
+<table class="table table-info">
+<tr>
+    <td>taskname</td>
+    <td>status</td>
+    <td>user</td>
+</tr>
+    {%for todos in todo%}
+    <tr>
+        <td>{{todos.taskname}}</td>
+        <td>{{todos.status}}</td>
+        <td>{{todos.user}}</td>
+        <td><a href="{%url 'remove' todos.id%}">DELETE</a> </td>
+        <td><a href="{%url 'update' todos.id%}">update</a> </td>
+    </tr>
+    {% endfor %}
+</table>
+{%endblock%}
